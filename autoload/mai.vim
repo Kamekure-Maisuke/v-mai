@@ -1,4 +1,4 @@
-let s:sound_path = expand("%:p:h:h") . '/sound'
+let s:sound_path = expand('<sfile>:h:h') . '/sound'
 
 function! mai#gag()
   silent! exec '!afplay ' . s:sound_path . '/gag.wav' . ' &'
