@@ -1,16 +1,11 @@
-let s:sound_path = expand('<sfile>:h:h') . '/sound'
+let s:soundpath = expand('<sfile>:h:h') . '/sound'
+let s:soundlist = glob(s:sound_path . '/**.wav')->split("\n")->map('fnamemodify(v:val,":t")[0:-5]')
 
-function! mai#gag()
-  silent! exec '!afplay ' . s:sound_path . '/gag.wav' . ' &'
-  redraw!
-endfunction
-
-function! mai#sleep()
-  silent! exec '!afplay ' . s:sound_path . '/sleep.wav' . ' &'
-  redraw!
-endfunction
-
-function! mai#support()
-  silent! exec '!afplay ' . s:sound_path . '/support.wav' . ' &'
+function! PlaySound(name) abort
+  let l:sound = s:soundlist->filter("v:val==a:name")
+  if l:sound == []
+    return
+  endif
+  silent! exec '!afplay ' . s:soundpath . '/' . l:sound[0] . '.wav' . ' &'
   redraw!
 endfunction

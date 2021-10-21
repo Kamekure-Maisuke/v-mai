@@ -1,6 +1,4 @@
 augroup MAI
   au!
-  autocmd CmdUndefined * call mai#support()
-  autocmd CmdUndefined * call mai#gag()
-  autocmd CmdUndefined * call mai#sleep()
+  autocmd CmdUndefined * call PlaySound()
 augroup END
