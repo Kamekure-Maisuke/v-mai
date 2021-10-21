@@ -1,4 +1,4 @@
 augroup MAI
   au!
-  autocmd CmdUndefined * call PlaySound()
+  autocmd CmdUndefined * call mai#sound()
 augroup END

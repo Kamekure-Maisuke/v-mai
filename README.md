@@ -2,11 +2,10 @@
 - maiyanサウンドのvim-plugin
 
 ```vim
-call mai#support()
-
-call mai#gag()
-
-call mai#sleep()
+" call mai#sound('音声')
+call mai#sound('support')
+call mai#sound('gag')
+call mai#sound('sleep')
 ```
 
 ## install
