@@ -3,7 +3,7 @@
 
 ```vim
 " 音声タイプ出力
-call mai#soundlist
+call mai#soundlist()
 
 " call mai#sound('音声タイプ')
 call mai#sound('support')
