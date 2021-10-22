@@ -7,7 +7,11 @@ function! mai#sound(name) abort
   if l:sound == []
     return
   endif
-  silent! exec '!afplay ' . s:soundpath . '/' . l:sound[0] . '.wav' . ' &'
+  if exists('*sound_playfile')
+    call sound_playfile(s:soundpath . '/' . l:sound[0] . '.wav')
+  else
+    silent! exec '!afplay ' . s:soundpath . '/' . l:sound[0] . '.wav' . ' &'
+  endif
   redraw!
 endfunction
 
