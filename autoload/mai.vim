@@ -1,9 +1,11 @@
+" wavファイル情報
 let s:soundpath = expand('<sfile>:h:h') . '/sound'
 let s:soundlist = glob(s:soundpath . '/**.wav')->split("\n")->map('fnamemodify(v:val,":t")[0:-5]')
 
 " play sound
 function! mai#sound(name) abort
-  let l:sound = s:soundlist->filter("v:val==a:name")
+  let l:soundlist = deepcopy(s:soundlist)
+  let l:sound = l:soundlist->filter("v:val==a:name")
   if l:sound == []
     return
   endif
