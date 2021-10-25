@@ -9,10 +9,13 @@ function! mai#sound(name) abort
   if l:sound == []
     return
   endif
-  if exists('*sound_playfile')
+  if has('mac')
+    silent! exec '!afplay ' . s:soundpath . '/' . l:sound[0] . '.wav' . ' &'
+  elseif exists('*sound_playfile')
     call sound_playfile(s:soundpath . '/' . l:sound[0] . '.wav')
   else
-    silent! exec '!afplay ' . s:soundpath . '/' . l:sound[0] . '.wav' . ' &'
+    echo "sound再生環境がありません。"
+    return
   endif
   redraw!
 endfunction
