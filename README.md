@@ -6,9 +6,7 @@
 call mai#soundlist()
 
 " call mai#sound('音声タイプ')
-call mai#sound('support')
 call mai#sound('like')
-call mai#sound('love')
 ```
 
 ## install
